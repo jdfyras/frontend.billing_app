@@ -1,0 +1,30 @@
+:host {
+  mat-card {
+    border-top: 2px solid darkblue;
+    border-radius: 0;
+  }
+
+  mat-card-header {
+    color: darkblue;
+    text-transform: uppercase;
+    border-bottom: #cccccc;
+  }
+
+  mat-card-footer {
+    margin-bottom: 10px;
+  }
+
+  button {
+    background: darkblue;
+    color: white;
+    margin: 0 20px;
+    padding: 5px 20px;
+    width: 400px;
+    text-transform: uppercase;
+    &:hover {
+      cursor: pointer;
+      background: #2a3042;
+    }
+  }
+}
+

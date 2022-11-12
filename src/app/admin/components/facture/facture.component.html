@@ -1,0 +1,121 @@
+<mat-card>
+  <h1>Factures</h1>
+</mat-card>
+
+<form novalidate #myForm="ngForm">
+  <kendo-grid
+    [data]="view | async"
+    [height]="533"
+    [sort]="gridState.sort"
+    [sortable]="true"
+    (dataStateChange)="onStateChange($event)"
+    (edit)="editHandler($event)"
+    (cancel)="cancelHandler($event)"
+    (save)="saveHandler($event)"
+    (remove)="removeHandler($event)"
+    (add)="addHandler($event, myForm)"
+    [navigable]="true"
+  >
+    <ng-template kendoGridToolbarTemplate>
+      <button kendoGridAddCommand type="button">Add new</button>
+    </ng-template>
+    <kendo-grid-column field="numFacture" title="num Facture">
+      <ng-template kendoGridEditTemplate let-dataItem="dataItem">
+        <input
+          [(ngModel)]="dataItem.numFacture"
+          kendoGridFocusable
+          name="numFacture"
+          class="k-textbox"
+          required
+        />
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="refContrat" title="ref Contrat">
+      <ng-template kendoGridEditTemplate let-dataItem="dataItem">
+        <input
+          [(ngModel)]="dataItem.refContrat"
+          kendoGridFocusable
+          name="refContrat"
+          class="k-textbox"
+          required
+        />
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="Montant_aPayer" title="Montant a Payer">
+      <ng-template kendoGridEditTemplate let-dataItem="dataItem">
+        <input
+          [(ngModel)]="dataItem.Montant_aPayer"
+          kendoGridFocusable
+          name="Montant_aPayer"
+          class="k-textbox"
+          required
+        />
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="Reste_aPayer" title="Reste a Payer">
+      <ng-template kendoGridEditTemplate let-dataItem="dataItem">
+        <input
+          [(ngModel)]="dataItem.Reste_aPayer"
+          kendoGridFocusable
+          name="Reste_aPayer"
+          class="k-textbox"
+          required
+        />
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="prise_charge" title="prise en charge">
+      <ng-template kendoGridEditTemplate let-dataItem="dataItem">
+        <input
+          [(ngModel)]="dataItem.prise_charge"
+          kendoGridFocusable
+          name="prise_charge"
+          class="k-textbox"
+          required
+        />
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="Echeances" title="Echeances">
+      <ng-template kendoGridEditTemplate let-dataItem="dataItem">
+        <input
+          [(ngModel)]="dataItem.Echeances"
+          kendoGridFocusable
+          name="Echeances"
+          class="k-textbox"
+          required
+        />
+      </ng-template>
+    </kendo-grid-column>
+
+    <kendo-grid-column field="isPayed" title="isPayed">
+      <ng-template kendoGridEditTemplate let-dataItem="dataItem">
+        <input
+          [(ngModel)]="dataItem.isPayed"
+          kendoGridFocusable
+          name="isPayed"
+          class="k-textbox"
+          required
+        />
+      </ng-template>
+    </kendo-grid-column>
+
+
+    <kendo-grid-command-column title="command" width="220">
+      <ng-template kendoGridCellTemplate let-isNew="isNew">
+        <button kendoGridEditCommand type="button" [primary]="true">
+          Edit
+        </button>
+        <button kendoGridRemoveCommand type="button">Remove</button>
+        <button
+          kendoGridSaveCommand
+          type="button"
+          [disabled]="myForm.invalid || myForm.pristine"
+        >
+          {{ isNew ? "Add" : "Update" }}
+        </button>
+        <button kendoGridCancelCommand type="button">
+          {{ isNew ? "Discard changes" : "Cancel" }}
+        </button>
+      </ng-template>
+    </kendo-grid-command-column>
+  </kendo-grid>
+</form>

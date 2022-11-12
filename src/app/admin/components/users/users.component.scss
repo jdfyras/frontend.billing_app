@@ -1,0 +1,13 @@
+:host ::ng-deep {
+  .facture-view {
+    background: #2a3042;
+    color: #a6b0cf;
+    padding: 5px;
+    border-radius: 3px;
+    text-decoration: none;
+    &:hover {
+      color: white;
+      background: #222;
+    }
+  }
+}

@@ -1,0 +1,67 @@
+:host ::ng-deep {
+  mat-card {
+    margin-bottom: 20px;
+  }
+
+  button {
+    padding: 10px;
+    background: #ccc;
+    border: 0;
+    border-radius: 4px;
+  }
+
+  .display-flex {
+    display: flex;
+  }
+
+  .flex-1 {
+    flex: 1;
+  }
+  .flex-2 {
+    flex: 2;
+  }
+  .flex-3 {
+    flex: 3;
+  }
+  .flex-4 {
+    flex: 4;
+  }
+  .flex-5 {
+    flex: 5;
+  }
+  .flex-6 {
+    flex: 6;
+  }
+  .flex-7 {
+    flex: 7;
+  }
+  .flex-8 {
+    flex: 8;
+  }
+  .flex-9 {
+    flex: 9;
+  }
+  .flex-10 {
+    flex: 10;
+  }
+  .flex-11 {
+    flex: 11;
+  }
+  .flex-12 {
+    flex: 12;
+  }
+
+  [class*='flex-'] {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  [class*='flex-']:first-child {
+    padding-left: 0px;
+  }
+
+  table {
+    width: 100%;
+  }
+
+}

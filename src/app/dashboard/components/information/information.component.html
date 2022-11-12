@@ -1,0 +1,15 @@
+<mat-card>
+  <h1>Mes information</h1>
+</mat-card>
+
+<mat-card>
+  <form disabled>
+    <formly-form [form]="formInfo" [fields]="fieldsInfo" [model]="modelInfo"></formly-form>
+  </form>
+</mat-card>
+
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
+  <button type="submit" class="btn btn-default">Save</button>
+</form>

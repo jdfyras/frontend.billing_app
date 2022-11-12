@@ -1,0 +1,41 @@
+<mat-card>
+  <h1>Mes factures</h1>
+</mat-card>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="numFacture">
+    <th mat-header-cell *matHeaderCellDef> numFacture </th>
+    <td mat-cell *matCellDef="let element"> {{element.numFacture}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Montant_aPayer">
+    <th mat-header-cell *matHeaderCellDef> Montant_aPayer </th>
+    <td mat-cell *matCellDef="let element"> {{element.Montant_aPayer}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Reste_aPayer">
+    <th mat-header-cell *matHeaderCellDef> Reste_aPayer </th>
+    <td mat-cell *matCellDef="let element"> {{element.Reste_aPayer}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="prise_charge">
+    <th mat-header-cell *matHeaderCellDef> prise_charge </th>
+    <td mat-cell *matCellDef="let element"> {{element.prise_charge}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Echeances">
+    <th mat-header-cell *matHeaderCellDef> Echeances </th>
+    <td mat-cell *matCellDef="let element"> {{element.Echeances}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <td mat-cell *matCellDef="let element">
+      <a href="" class="facture-view">Visualiser</a>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

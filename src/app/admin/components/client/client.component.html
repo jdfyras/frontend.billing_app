@@ -1,0 +1,63 @@
+<mat-card>
+  <h1>Clients</h1>
+</mat-card>
+
+<form novalidate #myForm="ngForm">
+  <kendo-grid
+    [data]="view | async"
+    [height]="533"
+    [sort]="gridState.sort"
+    [sortable]="true"
+    (dataStateChange)="onStateChange($event)"
+    (edit)="editHandler($event)"
+    (cancel)="cancelHandler($event)"
+    (save)="saveHandler($event)"
+    (remove)="removeHandler($event)"
+    (add)="addHandler($event, myForm)"
+    [navigable]="true"
+  >
+    <ng-template kendoGridToolbarTemplate>
+      <button kendoGridAddCommand type="button">Add new</button>
+    </ng-template>
+    <kendo-grid-column field="refClient" title="Ref Client">
+      <ng-template kendoGridEditTemplate let-dataItem="dataItem">
+        <input
+          [(ngModel)]="dataItem.refClient"
+          kendoGridFocusable
+          name="refClient"
+          class="k-textbox"
+          required
+        />
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="refUser" editor="numeric" title="Ref User">
+      <ng-template kendoGridEditTemplate let-dataItem="dataItem">
+        <input
+          [(ngModel)]="dataItem.refUser"
+          kendoGridFocusable
+          name="refUser"
+          class="k-textbox"
+          type="text"
+        />
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-command-column title="command" width="220">
+      <ng-template kendoGridCellTemplate let-isNew="isNew">
+        <button kendoGridEditCommand type="button" [primary]="true">
+          Edit
+        </button>
+        <button kendoGridRemoveCommand type="button">Remove</button>
+        <button
+          kendoGridSaveCommand
+          type="button"
+          [disabled]="myForm.invalid || myForm.pristine"
+        >
+          {{ isNew ? "Add" : "Update" }}
+        </button>
+        <button kendoGridCancelCommand type="button">
+          {{ isNew ? "Discard changes" : "Cancel" }}
+        </button>
+      </ng-template>
+    </kendo-grid-command-column>
+  </kendo-grid>
+</form>
